@@ -51,7 +51,7 @@ function ResetPassword() {
     setLoading(true)
 
     try {
-      await axios.post("http://localhost:5000/api/auth/reset-password", { token, newPassword })
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/reset-password`, { token, newPassword })
       setSnackbar({ open: true, message: "Password reset successful!", severity: "success" })
 
       setTimeout(() => {

@@ -90,7 +90,7 @@ const Dashboard = () => {
 
   const fetchUserDetails = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/me", {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ const Dashboard = () => {
 
   const fetchElections = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/api/election", {
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -178,7 +178,7 @@ const Dashboard = () => {
 
  const fetchCompletedElections = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/api/election/completed", {
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election/completed`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -290,7 +290,7 @@ const Dashboard = () => {
 
   const fetchVotingHistory = async () => {
   try {
-    const res = await axios.get("http://localhost:5000/api/voting/history", {
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/voting/history`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
@@ -339,7 +339,7 @@ const Dashboard = () => {
 
   const fetchNotifications = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/notifications", {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/notifications`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

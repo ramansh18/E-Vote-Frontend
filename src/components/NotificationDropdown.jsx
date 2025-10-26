@@ -81,7 +81,7 @@ export default function NotificationDropdown() {
     // Fetch initial notifications from API
     const fetchNotifications = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/notification", {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/notification`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -100,7 +100,7 @@ export default function NotificationDropdown() {
     fetchNotifications();
 
     // Setup socket connection with auth token
-    const socket = io("http://localhost:5000", {
+    const socket = io(`${import.meta.env.VITE_API_BASE_URL}`, {
       auth: { token },
     });
 

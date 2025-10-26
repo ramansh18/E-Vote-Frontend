@@ -49,7 +49,7 @@ const ProfileUpdate = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/auth/me", {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data);
@@ -74,7 +74,7 @@ const ProfileUpdate = () => {
 
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/user/update-profile",
+        `${import.meta.env.VITE_API_BASE_URL}/api/user/update-profile`,
         user,
         {
           headers: { Authorization: `Bearer ${token}` },
