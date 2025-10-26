@@ -72,7 +72,7 @@ const AdminElectionResults = () => {
   const fetchCompletedElections = async () => {
     try {
       setLoading(true)
-      const response = await axios.get("http://localhost:5000/api/election/completed", {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election/completed`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

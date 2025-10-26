@@ -72,7 +72,7 @@ const RequestApproval = () => {
 
     try {
       setLoading(true)
-      const response = await axios.get("http://localhost:5000/api/candidate/all-requests", {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/candidate/all-requests`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -112,7 +112,7 @@ const RequestApproval = () => {
     try {
       setProcessingId(id)
       await axios.put(
-        `http://localhost:5000/api/candidate/approve-candidate/${id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/candidate/approve-candidate/${id}`,
         {},
         {
           headers: {
@@ -135,7 +135,7 @@ const RequestApproval = () => {
     try {
       setProcessingId(id)
       await axios.put(
-        `http://localhost:5000/api/candidate/reject-candidate/${id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/candidate/reject-candidate/${id}`,
         {},
         {
           headers: {

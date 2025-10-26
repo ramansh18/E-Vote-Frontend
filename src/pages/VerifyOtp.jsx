@@ -61,7 +61,7 @@ function VerifyOTP() {
 
     setLoading(true)
     try {
-      await axios.post("http://localhost:5000/api/auth/verify-otp", formData)
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/verify-otp`, formData)
       setSnackbar({ open: true, message: "Registration successful!", severity: "success" })
       setTimeout(() => navigate("/login"), 1500)
     } catch (error) {
@@ -77,7 +77,7 @@ function VerifyOTP() {
   const handleResendOTP = async () => {
     try {
       setLoading(true)
-      await axios.post("http://localhost:5000/api/auth/resend-otp", { email: formData.email })
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/resend-otp`, { email: formData.email })
       setSnackbar({ open: true, message: "OTP resent successfully!", severity: "success" })
 
       // Update timestamp for the new OTP

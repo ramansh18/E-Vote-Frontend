@@ -96,7 +96,7 @@ const ResultPage = () => {
   try {
     console.log(electionId);
     const res = await axios.get(
-      `http://localhost:5000/api/election/${electionId}/results`
+      `${import.meta.env.VITE_API_BASE_URL}/api/election/${electionId}/results`
     );
 
     setElection(res.data.election);

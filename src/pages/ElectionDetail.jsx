@@ -30,7 +30,7 @@ const ElectionDetail = () => {
   useEffect(() => {
     const fetchElection = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/election/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election/${id}`);
         setElection(res.data);
       } catch (err) {
         setSnackbar({

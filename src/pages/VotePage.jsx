@@ -115,7 +115,7 @@ const VotePage = () => {
     const fetchCandidates = async () => {
       try {
         setInitialLoading(true)
-        const res = await axios.get(`http://localhost:5000/api/election/${electionId}/candidates/approved`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election/${electionId}/candidates/approved`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         console.log("candidate ka data",res.data)
@@ -137,7 +137,7 @@ const VotePage = () => {
   useEffect(() => {
   const fetchElectionTime = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/election/${electionId}`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election/${electionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const election = res.data
@@ -231,7 +231,7 @@ const VotePage = () => {
     try {
       setLoading(true)
       const res = await axios.post(
-        "http://localhost:5000/api/voting/vote",
+        `${import.meta.env.VITE_API_BASE_URL}/api/voting/vote`,
         { candidateAddress: selectedCandidate, electionId },
         {
           headers: {

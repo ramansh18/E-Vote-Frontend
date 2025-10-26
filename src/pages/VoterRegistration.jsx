@@ -35,7 +35,7 @@ export default function VoterRegistration() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/me", {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         setUserData(res.data)
@@ -80,7 +80,7 @@ export default function VoterRegistration() {
     setRegistering(true)
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/voter/register",
+        `${import.meta.env.VITE_API_BASE_URL}/api/voter/register`,
         {
           name: userData.name,
           age: userData.age,

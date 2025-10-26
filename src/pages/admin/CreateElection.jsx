@@ -198,7 +198,7 @@ const CreateElection = () => {
     try {
       console.log(formData)
       const response = await axios.post(
-        "http://localhost:5000/api/election",
+      `${import.meta.env.VITE_API_BASE_URL}/api/election`,
         {
           title: formData.title,
           description: formData.description,

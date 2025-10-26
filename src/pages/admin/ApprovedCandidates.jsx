@@ -71,7 +71,7 @@ export default function ApprovedCandidates() {
     const fetchApprovedCandidates = async () => {
       try {
         setLoading(true)
-        const { data } = await axios.get("http://localhost:5000/api/candidate/approved", {
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/candidate/approved`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

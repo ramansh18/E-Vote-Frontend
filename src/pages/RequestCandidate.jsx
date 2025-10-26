@@ -86,7 +86,7 @@ const RequestCandidate = () => {
   const fetchElections = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/election/upcoming-election",
+        `${import.meta.env.VITE_API_BASE_URL}/api/election/upcoming-election`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ const RequestCandidate = () => {
   const fetchCandidateRequests = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/candidate/my-request",
+        `${import.meta.env.VITE_API_BASE_URL}/api/candidate/my-request`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -130,7 +130,7 @@ const RequestCandidate = () => {
     try {
       setUploadingImage(true);
       const response = await axios.post(
-        "http://localhost:5000/api/upload",
+        `${import.meta.env.VITE_API_BASE_URL}/api/upload`,
         formData,
         {
           headers: {
@@ -230,7 +230,7 @@ const RequestCandidate = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/api/candidate/submit-request",
+        `${import.meta.env.VITE_API_BASE_URL}/api/candidate/submit-request`,
         requestData,
         {
           headers: {
@@ -271,7 +271,7 @@ const RequestCandidate = () => {
     try {
       setDeleting(true);
       const response = await axios.delete(
-        `http://localhost:5000/api/candidate/delete-request/${requestId}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/candidate/delete-request/${requestId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

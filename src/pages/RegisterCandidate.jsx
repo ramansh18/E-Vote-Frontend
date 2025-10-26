@@ -32,7 +32,7 @@ const RegisterCandidate = () => {
 
     try {
       // Send request to the backend for candidate registration
-      const response = await axios.post("http://localhost:5000/api/candidate/register", {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/candidate/register`, {
         userId,
         electionId,
         motto,

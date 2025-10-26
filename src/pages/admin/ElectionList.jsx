@@ -73,7 +73,7 @@ const ElectionListPage = () => {
   const fetchElections = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/election");
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election`);
       setElections(response.data);
       console.log("election",response.data)
       // Calculate statistics
@@ -126,7 +126,7 @@ const ElectionListPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/election/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/election/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -143,7 +143,7 @@ const ElectionListPage = () => {
   const handleStart = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/election/${id}/start`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/election/${id}/start`,
         {}, // Empty body since no duration needed
         {
           headers: {
@@ -163,7 +163,7 @@ const ElectionListPage = () => {
   const handleEnd = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/election/${id}/end`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/election/${id}/end`,
         {},
         {
           headers: {

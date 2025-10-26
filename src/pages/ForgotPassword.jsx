@@ -28,7 +28,7 @@ function ForgotPassword() {
     setLoading(true)
 
     try {
-      await axios.post("http://localhost:5000/api/auth/request-reset", { email })
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/request-reset`, { email })
       setEmailSent(true)
       setSnackbar({ open: true, message: "Password reset link sent to your email!", severity: "success" })
     } catch (error) {

@@ -253,12 +253,12 @@ const [activitiesPerPage] = useState(8)
     }
   }
 
-  const socket = io("http://localhost:5000",{
+  const socket = io(`${import.meta.env.VITE_API_BASE_URL}`,{
       auth: { token },
     })
   useEffect(() => {
     // 1. Fetch past activities on page load
-    fetch("http://localhost:5000/api/activity",{
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/activity`,{
           headers: {
             Authorization: `Bearer ${token}`,
           },

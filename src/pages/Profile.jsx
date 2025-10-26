@@ -55,7 +55,7 @@ function Profile() {
       try {
         setInitialLoading(true)
         if (token) {
-          const response = await axios.get("http://localhost:5000/api/auth/me", {
+          const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -92,7 +92,7 @@ function Profile() {
 
     try {
       const token = localStorage.getItem("authToken")
-      const response = await axios.put("http://localhost:5000/api/user/update-profile", userData, {
+      const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/user/update-profile`, userData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

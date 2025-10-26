@@ -71,7 +71,7 @@ const VoterListPage = () => {
     const fetchVotersData = async () => {
       try {
         setLoading(true)
-        const response = await axios.get("http://localhost:5000/api/voter/all", {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/voter/all`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

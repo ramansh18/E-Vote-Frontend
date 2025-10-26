@@ -138,7 +138,7 @@ const Elections = () => {
     //   setLoading(true)
      // Replace with actual API call
      const TOTAL_VOTERS = 2500;
-      const res = await axios.get("http://localhost:5000/api/election/available")
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/election/available`)
       console.log(res.data)
       
       const transformed = res.data.map((election) => {
