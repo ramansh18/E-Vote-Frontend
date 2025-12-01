@@ -47,7 +47,7 @@ const ElectionDetail = () => {
   }, [id]);
 
   const handleVote = () => navigate(`/voting/vote/${id}`);
-  const handleShowResults = () => navigate(`/results/${id}`);
+  const handleShowResults = () => navigate(`/result/${id}`);
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "#f4f6f8", py: 6, px: 2, display: "flex", justifyContent: "center" }}>
